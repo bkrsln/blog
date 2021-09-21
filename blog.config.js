@@ -20,7 +20,7 @@ const BLOG = {
   socialLink: 'https://twitter.com/bkrsln',
   seo: {
     keywords: ['Blog', 'Data', 'Data Visualization', 'Growth'],
-    googleSiteVerification: 'oti82huZlLt7QMfFeUDv6m5Isr6UQYqo_Yg3bbSpU1E' // Remove the value or replace it with your own google site verification code
+    googleSiteVerification: 'google-site-verification=oti82huZlLt7QMfFeUDv6m5Isr6UQYqo_Yg3bbSpU1E' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
