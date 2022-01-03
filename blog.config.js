@@ -15,7 +15,6 @@ const BLOG = {
   sortByDate: false,
   showAbout: true,
   showArchive: true,
-  showBookmarks: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateURL: 'https://og-image-craigary.vercel.app', // The link to generate OG image, don't end with a slash
   socialLink: 'https://twitter.com/bkrsln',
