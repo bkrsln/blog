@@ -80,7 +80,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
                     width="24"
                     height="24"
                     className="fill-current text-black dark:text-white"
-                    src="https://gravatar.com/avatar/${emailHash}"
+                    src="https://gravatar.com/avatar/98fadf93377cc9d7446cb45e0a121886"
                   />
                   <image width="24" height="24" fill="url(#paint0_radial)" />
                   <defs>
