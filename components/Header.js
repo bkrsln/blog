@@ -76,17 +76,18 @@ const Header = ({ navBarTitle, fullWidth }) => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <rect
+                  <image
                     width="24"
                     height="24"
-                    className="fill-current text-black dark:text-white"/>
-                  <rect width="24" height="24" fill="url(#paint0_radial)" />
+                    className="fill-current text-black dark:text-white"
+                    src="../public/apple-touch-icon.png"/>
+                  <image width="24" height="24" fill="url(#paint0_radial)" />
                   <defs>
                     <radialGradient
                       id="paint0_radial"
                       cx="0"
                       cy="0"
-                      r="1"
+                      r="40"
                       gradientUnits="userSpaceOnUse"
                       gradientTransform="rotate(45) scale(39.598)"
                     >
