@@ -80,7 +80,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
                     width="24"
                     height="24"
                     className="fill-current text-black dark:text-white"
-                    src="../public/apple-touch-icon.png"/>
+                    href="../public/apple-touch-icon.png"/>
                   <image width="24" height="24" fill="url(#paint0_radial)" />
                   <defs>
                     <radialGradient
