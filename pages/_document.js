@@ -88,7 +88,10 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png"></link>
           <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed"></link>
-          <link rel="stylesheet" type="text/css" href="https://widgets.superpeer.com/widget.css"><script src="https://widgets.superpeer.com/widget.js"></script><script>window.addEventListener("load", () => {new Superpeer.Widget({embed:{type:"slide-in"},launcher:{type:"superpeer-logo",options:{}},config:{username:"bekirarslan",serviceSlug:""}})})</script>
+          
+          <link rel="stylesheet" type="text/css" href="https://widgets.superpeer.com/widget.css"></link>
+          <script src="https://widgets.superpeer.com/widget.js"></script><script dangerouslySetInnerHTML={{ __html: `window.addEventListener("load", () => {new Superpeer.Widget({embed:{type:"slide-in"},launcher:{type:"superpeer-logo",options:{}},config:{username:"bekirarslan",serviceSlug:"booknow"}})})`}} ></script>
+
           {BLOG.appearance === 'auto'
             ? (
             <>
@@ -104,7 +107,9 @@ class MyDocument extends Document {
         <body className="bg-day dark:bg-night">
           <Main />
           <NextScript />
+          
         </body>
+        
       </Html>
     )
   }
