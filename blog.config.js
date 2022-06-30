@@ -1,7 +1,7 @@
 const BLOG = {
   title: 'Bekir Arslan',
   author: 'Bekir Arslan',
-  email: 'mail@bekirarslan.info',
+  email: 'bekirarslan@outlook.com',
   link: 'https://bekirarslan.com',
   description: '@bkrsln',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
