@@ -140,3 +140,7 @@ nav {
     @apply bg-day bg-opacity-90 dark:bg-night dark:bg-opacity-90;
   }
 }
+
+flex-row {
+    padding-top: 2rem;
+}
