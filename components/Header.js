@@ -71,18 +71,18 @@ const Header = ({ navBarTitle, fullWidth }) => {
             <a>
               <div className="h-6">
                 <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <image
-                    width="24"
-                    height="24"
+                    width="36"
+                    height="36"
                     className="fill-current text-black dark:text-white"
                     href="favicon.JPG"/>
-                  <image width="24" height="24" fill="url(#paint0_radial)" />
+                  <image width="36" height="36" fill="url(#paint0_radial)" />
                   <defs>
                     <radialGradient
                       id="paint0_radial"
