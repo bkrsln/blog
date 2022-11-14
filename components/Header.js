@@ -81,7 +81,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
                     width="64"
                     height="64"
                     className="fill-current text-black dark:text-white"
-                    href="../public/favicon.png"/>
+                    href="favicon.png"/>
                   <image width="64" height="64" fill="url(#paint0_radial)" />
                   <defs>
                     <radialGradient
