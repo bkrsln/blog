@@ -141,6 +141,7 @@ nav {
   }
 }
 
-flex-row {
+.flex-row {
+    flex-direction: row;
     padding-top: 2rem;
 }
