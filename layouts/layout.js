@@ -42,7 +42,7 @@ const Layout = ({
                   alt={BLOG.author}
                   width={24}
                   height={24}
-                  src={`http://bekirarslan.com/public/favicon.png`}
+                  href="favicon.png"
                   className="rounded-full"
                 />
                 <p className="ml-2 md:block">{BLOG.author}</p>
