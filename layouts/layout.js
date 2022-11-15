@@ -38,6 +38,13 @@ const Layout = ({
           <nav className="flex mt-7 items-start text-gray-500 dark:text-gray-400">
             <div className="flex mb-4">
               <a href={BLOG.socialLink || '#'} className="flex">
+                <Image
+                  alt={BLOG.author}
+                  width={24}
+                  height={24}
+                  src={`../public/favicon.png`}
+                  className="rounded-full"
+                />
                 <p className="ml-2 md:block">{BLOG.author}</p>
               </a>
               <span className="block">&nbsp;/&nbsp;</span>
