@@ -69,7 +69,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sticky-nav {
-  position: sticky;
+  position: static; 
   z-index: 10;
   top: -1px;
   backdrop-filter: blur(5px);
