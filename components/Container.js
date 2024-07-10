@@ -64,7 +64,6 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
             <meta property="article:author" content={BLOG.author} />
           </>
         )}
-      <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEQKQH18E"></script>
       <script>
        window.dataLayer = window.dataLayer || [];
