@@ -14,8 +14,7 @@ const Scripts = () => {
         />
       )}
       {BLOG.analytics && BLOG.analytics.provider === 'ga' && (
-        <>
-          <!-- Google tag (gtag.js) -->    
+        <>   
           <Script async
             src={`https://www.googletagmanager.com/gtag/js?id=${BLOG.analytics.gaConfig.measurementId}`}
           />
