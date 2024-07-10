@@ -63,14 +63,7 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
             />
             <meta property="article:author" content={BLOG.author} />
           </>
-        )}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEQKQH18E"></script>
-      <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-       gtag('config', 'G-YBEQKQH18E');
-      </script>  
+        )} 
       </Head>
       <div
         className={`wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
