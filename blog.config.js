@@ -5,7 +5,7 @@ const BLOG = {
   link: 'https://bekirarslan.com',
   description: '@bkrsln',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
-  timezone: 'Asia/Istanbul', // Your Notion posts' date will be interpreted as this timezone. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
+  timezone: 'Asia/Istanbul', // Your Notion posts' date will be interpreted as this timezone.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'serif', // ['sans-serif', 'serif']
   lightBackground: '#ffffff', // use hex value, don't forget '#' e.g #fffefc
