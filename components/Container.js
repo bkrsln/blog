@@ -63,7 +63,7 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
             />
             <meta property="article:author" content={BLOG.author} />
           </>
-        )} 
+        )}
       </Head>
       <div
         className={`wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
