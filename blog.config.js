@@ -20,7 +20,7 @@ const BLOG = {
   ogImageGenerateURL: 'https://og-image-craigary.vercel.app', // The link to generate OG image, don't end with a slash
   socialLink: 'https://twitter.com/bkrsln',
   seo: {
-    keywords: ['Data', 'Data Science', 'Data Analytics', 'Data Visualization', 'Growth', 'Personal', 'Book', 'Trip', 'Movie', 'Product'],
+    keywords: ['Data', 'Data Science', 'Data Analytics', 'Data Visualization', 'Growth', 'Book', 'Trip', 'Movie', 'Product'],
     googleSiteVerification: 'oti82huZlLt7QMfFeUDv6m5Isr6UQYqo_Yg3bbSpU1E' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
