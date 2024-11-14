@@ -163,3 +163,7 @@ nav {
 .capture-pointer-events * {
   @apply pointer-events-none;
 }
+
+.hidden {
+  display: none;
+}
