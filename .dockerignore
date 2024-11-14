@@ -1,0 +1,25 @@
+# Node modules ve bağımlılık dosyaları
+node_modules
+yarn-error.log
+npm-debug.log
+
+# Git dosyaları
+.git
+.gitignore
+
+# Docker dosyaları
+.dockerignore
+
+# Ortam dosyaları (Docker imajına dahil edilmesini istemiyorsanız)
+.env
+.env.local
+.env.*.local
+
+# Çıkış ve derleme dosyaları (React, Vue gibi projeler için)
+build
+dist
+out
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
