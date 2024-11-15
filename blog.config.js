@@ -4,7 +4,7 @@ const BLOG = {
   email: 'bekirarslan@outlook.com',
   link: 'https://bekirarslan.com',
   description: '@bkrsln',
-  lang: 'tr-TR', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
+  lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Istanbul', // Your Notion posts' date will be interpreted as this timezone.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'serif', // ['sans-serif', 'serif']
