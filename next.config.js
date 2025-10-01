@@ -1,5 +1,6 @@
 module.exports = {
   output: 'export',
+  distDir: 'dist',
   trailingSlash: true,
   images: {
     unoptimized: true
