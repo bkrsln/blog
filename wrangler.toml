@@ -1,0 +1,24 @@
+name = "blog"
+compatibility_date = "2023-12-01"
+
+[build]
+command = "npm run build"
+publish = "out"
+
+[[headers]]
+for = "/fonts/*"
+[headers.values]
+"Cache-Control" = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*"
+[headers.values]
+"X-Frame-Options" = "DENY"
+"X-Content-Type-Options" = "nosniff"
+"Referrer-Policy" = "strict-origin-when-cross-origin"
+
+[env.production]
+NODE_ENV = "production"
+
+[env.preview]
+NODE_ENV = "production"

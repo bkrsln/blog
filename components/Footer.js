@@ -1,5 +1,5 @@
 import { useConfig } from '@/lib/config'
-import Vercel from '@/components/Vercel'
+import CloudflarePages from '@/components/CloudflarePages'
 const Footer = ({ fullWidth }) => {
   const BLOG = useConfig()
 
@@ -18,7 +18,7 @@ const Footer = ({ fullWidth }) => {
           <p>
             © {BLOG.author} {from === y || !from ? y : `${from} - ${y}`}
           </p>
-          <Vercel />
+          <CloudflarePages />
         </div>
       </div>
     </div>

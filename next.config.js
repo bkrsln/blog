@@ -1,6 +1,8 @@
 module.exports = {
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: ['gravatar.com']
+    unoptimized: true
   },
   eslint: {
     // dirs: ['components', 'layouts', 'lib', 'pages']
