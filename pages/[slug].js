@@ -92,7 +92,6 @@ export async function getStaticProps ({ params: { slug } }) {
     .toLowerCase()
 
   return {
-    props: { post, blockMap, emailHash },
-    revalidate: 1
+    props: { post, blockMap, emailHash }
   }
 }
