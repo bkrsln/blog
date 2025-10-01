@@ -1,4 +1,4 @@
-import { config } from '@/lib/server/config'
+import config from '@/blog.config.js'
 
 import Container from '@/components/Container'
 import BlogPost from '@/components/BlogPost'

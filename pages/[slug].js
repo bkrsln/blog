@@ -1,4 +1,4 @@
-import { clientConfig } from '@/lib/server/config'
+import config from '@/blog.config.js'
 
 import { useRouter } from 'next/router'
 import cn from 'classnames'
@@ -73,7 +73,7 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: true })
   return {
-    paths: posts.map(row => `${clientConfig.path}/${row.slug}`),
+    paths: posts.map(row => `${config.path}/${row.slug}`),
     fallback: true
   }
 }
@@ -86,7 +86,7 @@ export async function getStaticProps ({ params: { slug } }) {
 
   const blockMap = await getPostBlocks(post.id)
   const emailHash = createHash('md5')
-    .update(clientConfig.email)
+    .update(config.email)
     .digest('hex')
     .trim()
     .toLowerCase()

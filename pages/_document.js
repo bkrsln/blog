@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import cn from 'classnames'
-import { config } from '@/lib/server/config'
+import config from '@/blog.config.js'
 import tailwind from '@/tailwind.config'
 import CJK from '@/lib/cjk'
 class MyDocument extends Document {
