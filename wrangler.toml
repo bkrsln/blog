@@ -1,0 +1,5 @@
+name = "blog"
+compatibility_date = "2023-12-01"
+
+# This is for Cloudflare Pages - no need for wrangler.toml configuration
+# The build output directory is handled by the Pages dashboard
