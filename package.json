@@ -20,7 +20,8 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "pages:build": "pnpm build && next export",
     "pages:dev": "wrangler pages dev out",
-    "pages:deploy": "wrangler pages deploy out"
+    "pages:deploy": "wrangler pages deploy out",
+    "cf:build": "yarn install --no-immutable && yarn build"
   },
   "dependencies": {
     "axios": "^1.6.1",
