@@ -1,4 +1,4 @@
-import config from '@/blog.config.js'
+import config from '../blog.config.js'
 
 import { useRouter } from 'next/router'
 import cn from 'classnames'

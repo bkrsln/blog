@@ -38,7 +38,7 @@ export default function MyApp ({ Component, pageProps, config, locale }) {
 }
 
 MyApp.getInitialProps = async ctx => {
-  const config = await import('@/blog.config.js').then(module => module.default || module)
+  const config = await import('../blog.config.js').then(module => module.default || module)
 
   prepareDayjs(config.timezone)
 
