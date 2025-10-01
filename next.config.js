@@ -4,6 +4,10 @@ module.exports = {
   images: {
     unoptimized: true
   },
+  // Disable ISR for static export
+  experimental: {
+    isrMemoryCacheSize: 0
+  },
   eslint: {
     // dirs: ['components', 'layouts', 'lib', 'pages']
   },

@@ -29,7 +29,8 @@ export async function getStaticProps (context) {
       page, // Current Page
       postsToShow,
       showNext
-    }
+    },
+    revalidate: false
   }
 }
 
