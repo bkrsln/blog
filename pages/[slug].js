@@ -72,6 +72,15 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 
 export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: true })
+  
+  // If no posts (SKIP_NOTION), return empty paths
+  if (posts.length === 0) {
+    return {
+      paths: [],
+      fallback: false
+    }
+  }
+  
   return {
     paths: posts.map(row => `${config.path}/${row.slug}`),
     fallback: true
