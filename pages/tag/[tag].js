@@ -26,7 +26,7 @@ export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: false })
   const tags = getAllTagsFromPosts(posts)
   
-  // If no posts (SKIP_NOTION), return empty paths
+  // If no posts available, return empty paths
   if (posts.length === 0) {
     return {
       paths: [],

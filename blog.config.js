@@ -56,7 +56,7 @@ const BLOG = {
       scriptSrc: 'https://cusdis.com/js/cusdis.es.js' // change this if you're using self-hosted version
     }
   },
-  isProd: process.env.VERCEL_ENV === 'production' // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
+  isProd: process.env.NODE_ENV === 'production' || process.env.CF_PAGES === '1' // distinguish between development and production environment (supports Cloudflare Pages)
 }
 // export default BLOG
 module.exports = BLOG

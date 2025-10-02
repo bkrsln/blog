@@ -39,7 +39,7 @@ export async function getStaticPaths () {
   const totalPosts = posts.length
   const totalPages = Math.ceil(totalPosts / config.postsPerPage)
   
-  // If no posts (SKIP_NOTION), return empty paths
+  // If no posts available, return empty paths
   if (totalPosts === 0) {
     return {
       paths: [],

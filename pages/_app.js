@@ -22,13 +22,13 @@ export default function MyApp ({ Component, pageProps, config, locale }) {
       <LocaleProvider value={locale}>
         <ThemeProvider>
           <>
-            {process.env.VERCEL_ENV === 'production' && config?.analytics?.provider === 'ackee' && (
+            {config.isProd && config?.analytics?.provider === 'ackee' && (
               <Ackee
                 ackeeServerUrl={config.analytics.ackeeConfig.dataAckeeServer}
                 ackeeDomainId={config.analytics.ackeeConfig.domainId}
               />
             )}
-            {process.env.VERCEL_ENV === 'production' && config?.analytics?.provider === 'ga' && <Gtag />}
+            {config.isProd && config?.analytics?.provider === 'ga' && <Gtag />}
             <Component {...pageProps} />
           </>
         </ThemeProvider>
