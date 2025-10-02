@@ -38,6 +38,15 @@ export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: false })
   const totalPosts = posts.length
   const totalPages = Math.ceil(totalPosts / config.postsPerPage)
+  
+  // If no posts (SKIP_NOTION), return empty paths
+  if (totalPosts === 0) {
+    return {
+      paths: [],
+      fallback: false
+    }
+  }
+  
   return {
     // remove first page, we 're not gonna handle that.
     paths: Array.from({ length: totalPages - 1 }, (_, i) => ({
