@@ -12,7 +12,7 @@ Bu proje Cloudflare Pages için optimize edilmiştir. Worker'ı silip yeni Pages
 
 **Build command:**
 ```
-pnpm install --frozen-lockfile && pnpm run pages:build
+npm install --legacy-peer-deps && npm run pages:build
 ```
 
 **Build output directory:**
