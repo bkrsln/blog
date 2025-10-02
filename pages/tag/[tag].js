@@ -25,6 +25,15 @@ export async function getStaticProps ({ params }) {
 export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: false })
   const tags = getAllTagsFromPosts(posts)
+  
+  // If no posts (SKIP_NOTION), return empty paths
+  if (posts.length === 0) {
+    return {
+      paths: [],
+      fallback: false
+    }
+  }
+  
   return {
     paths: Object.keys(tags).map(tag => ({ params: { tag } })),
     fallback: true
