@@ -17,7 +17,7 @@ const BLOG = {
   showAbout: true,
   showArchive: true,
   autoCollapsedNavBar: true, // The automatically collapsed navigation bar
-  ogImageGenerateURL: 'https://og-image-craigary.vercel.app', // The link to generate OG image, don't end with a slash
+  ogImageGenerateURL: 'https://og.codepo8.com', // The link to generate OG image, don't end with a slash
   socialLink: 'https://twitter.com/bkrsln',
   seo: {
     keywords: ['Data Science','Data Analytics','Data Visualization','Business Intelligence','Growth Hacking','Product Analytics','Data Storytelling','Product Management','Book','Trip','Movie'],

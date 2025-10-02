@@ -111,14 +111,6 @@ git push origin main
 
 Deploy durumu: Cloudflare Dashboard → Pages → project → deployments
 
-## 8. Key Differences from Vercel
-
-- Output directory: `out` (Vercel'de `.next` idi)
-- Static export zorunlu (ISR yok)
-- Environment variables Pages settings'den
-- Custom headers `next.config.js`'de tanımlı
-- Sitemap postbuild ile üretiliyor
-
 ---
 
 Bu ayarlarla Pages projesi %100 çalışacak. Sorun olursa `/health` endpoint'ini kontrol et.
