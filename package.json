@@ -43,6 +43,11 @@
     "react-use": "^17.4.0",
     "use-ackee": "^3.0.1"
   },
+  "overrides": {
+    "react-cusdis": {
+      "react": "^18.2.0"
+    }
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
