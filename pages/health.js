@@ -13,5 +13,5 @@ export default function Health() {
 }
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'experimental-edge'
 }
