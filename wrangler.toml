@@ -2,5 +2,8 @@ name = "blog"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = "out"
 
+[build]
+command = "bun run build"
+
 [env.production]
 vars = { }

@@ -24,3 +24,11 @@ Troubleshooting:
 - If you see `Error: NOTION_PAGE_ID is missing or invalid` in build logs, that means the `NOTION_PAGE_ID` is not set correctly.
 - Make sure the page id is the collection page id (not a post id). Use `idToUuid` helper from `notion-utils` to convert if needed.
 
+Optional / Temporary:
+
+- SKIP_NOTION=1 : Set this to skip fetching from Notion (build succeeds with an empty post list). Useful while DNS / env debugging.
+
+Health Check:
+
+- A page at `/health` is provided to quickly verify a successful Pages deployment (shows build time & env presence).
+
