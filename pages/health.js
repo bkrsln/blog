@@ -5,13 +5,9 @@ export default function Health() {
       <p>Deployment health check page.</p>
       <ul>
         <li>Build Time: {new Date().toISOString()}</li>
-        <li>SKIP_NOTION: {process.env.SKIP_NOTION === '1' ? 'ON' : 'OFF'}</li>
-        <li>Has NOTION_PAGE_ID: {process.env.NOTION_PAGE_ID ? 'YES' : 'NO'}</li>
+        <li>SKIP_NOTION: {typeof process !== 'undefined' && process.env?.SKIP_NOTION === '1' ? 'ON' : 'OFF'}</li>
+        <li>Has NOTION_PAGE_ID: {typeof process !== 'undefined' && process.env?.NOTION_PAGE_ID ? 'YES' : 'NO'}</li>
       </ul>
     </main>
   )
-}
-
-export const config = {
-  runtime: 'experimental-edge'
 }
