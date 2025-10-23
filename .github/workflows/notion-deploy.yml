@@ -1,0 +1,45 @@
+name: Auto Deploy from Notion
+
+on:
+  # Manuel tetikleme
+  workflow_dispatch:
+  
+  # Notion webhook'u için
+  repository_dispatch:
+    types: [notion-update]
+  
+  # Scheduled backup (her 2 saatte bir kontrol)
+  schedule:
+    - cron: '0 */2 * * *'  # Her 2 saatte bir
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build site
+        run: npm run build
+        env:
+          NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+          NOTION_ACCESS_TOKEN: ${{ secrets.NOTION_ACCESS_TOKEN }}
+          
+      - name: Generate sitemap
+        run: npm run postbuild
+        
+      - name: Trigger Cloudflare Pages Deploy
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"compatibility_date":"2023-10-01"}'
