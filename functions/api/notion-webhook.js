@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
     // Read body as text first for signature verification
     const bodyText = await request.text();
     
-    // Verify webhook signature if secret is provided
+    // Verify webhook signature if secret is provided (optional)
     if (context.env.NOTION_WEBHOOK_SECRET) {
       const signature = request.headers.get('notion-webhook-signature') || 
                        request.headers.get('x-notion-signature');
@@ -44,6 +44,8 @@ export async function onRequestPost(context) {
         }
         console.log('Webhook signature verified successfully');
       }
+    } else {
+      console.log('Webhook received without signature verification (no secret configured)');
     }
     
     const body = JSON.parse(bodyText);
