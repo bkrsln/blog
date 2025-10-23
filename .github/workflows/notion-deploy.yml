@@ -39,7 +39,16 @@ jobs:
         
       - name: Trigger Cloudflare Pages Deploy
         run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
+          # Get account ID first
+          ACCOUNT_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" | \
+            jq -r '.result[0].id')
+          
+          echo "Account ID: $ACCOUNT_ID"
+          
+          # Trigger deployment with correct API endpoint
+          curl -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
             --data '{"compatibility_date":"2023-10-01"}' \
