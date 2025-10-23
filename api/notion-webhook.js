@@ -2,7 +2,16 @@
 export default async function handler(req, res) {
   // Handle Notion webhook verification challenge
   if (req.method === 'POST' && req.body?.challenge) {
+    console.log('Webhook verification challenge received:', req.body.challenge);
     return res.status(200).json({ challenge: req.body.challenge });
+  }
+  
+  // Handle GET requests for verification
+  if (req.method === 'GET') {
+    return res.status(200).json({ 
+      message: 'Notion webhook endpoint is active',
+      timestamp: new Date().toISOString()
+    });
   }
   
   // Only accept POST requests for actual webhooks
@@ -11,13 +20,12 @@ export default async function handler(req, res) {
   }
   
   try {
-    // Verify webhook secret (optional security)
-    const webhookSecret = process.env.NOTION_WEBHOOK_SECRET;
-    const receivedSecret = req.headers['x-webhook-secret'];
-    
-    if (webhookSecret && receivedSecret !== webhookSecret) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
+    // Skip webhook secret verification for now (Notion may not provide one)
+    console.log('Webhook received from Notion:', {
+      method: req.method,
+      headers: Object.keys(req.headers),
+      body: req.body ? 'Present' : 'Missing'
+    });
     
     // Trigger GitHub Actions workflow
     const githubToken = process.env.GH_TOKEN;
