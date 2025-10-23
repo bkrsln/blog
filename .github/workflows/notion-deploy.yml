@@ -37,15 +37,19 @@ jobs:
       - name: Generate sitemap
         run: npm run postbuild
         
-      - name: List Cloudflare Pages Projects (to find Project ID)
-        run: |
-          curl -X GET "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-            -H "Content-Type: application/json" || echo "Need Account ID first"
-            
-      - name: Try Cloudflare Pages Deploy (will show available projects if fails)
-        run: |
-          echo "If Project ID not found, we'll get list of available projects from error"
-          curl -X GET "https://api.cloudflare.com/client/v4/pages/projects" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-            -H "Content-Type: application/json"
+      - name: Show build success
+        run: echo "✅ GitHub Actions build completed successfully!"
+        
+      # Cloudflare steps temporarily disabled for testing
+      # - name: List Cloudflare Pages Projects (to find Project ID)
+      #   run: |
+      #     curl -X GET "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects" \
+      #       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+      #       -H "Content-Type: application/json" || echo "Need Account ID first"
+      #       
+      # - name: Try Cloudflare Pages Deploy (will show available projects if fails)
+      #   run: |
+      #     echo "If Project ID not found, we'll get list of available projects from error"
+      #     curl -X GET "https://api.cloudflare.com/client/v4/pages/projects" \
+      #       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+      #       -H "Content-Type: application/json"
