@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     }
     
     // Trigger GitHub Actions workflow
-    const githubToken = process.env.GITHUB_TOKEN;
+    const githubToken = process.env.GH_TOKEN;
     const repoOwner = 'bkrsln';
     const repoName = 'blog';
     

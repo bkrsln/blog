@@ -10,7 +10,7 @@ This blog automatically deploys when Notion content changes using webhooks and G
    ```
    NOTION_PAGE_ID=your_notion_database_id
    NOTION_ACCESS_TOKEN=your_notion_integration_token
-   GITHUB_TOKEN=your_github_personal_access_token
+   GH_TOKEN=your_github_personal_access_token
    CLOUDFLARE_API_TOKEN=your_cloudflare_api_token
    CLOUDFLARE_PROJECT_ID=your_cloudflare_pages_project_id
    NOTION_WEBHOOK_SECRET=random_secret_string (optional)
