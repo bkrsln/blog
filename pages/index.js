@@ -17,7 +17,7 @@ export async function getStaticProps () {
       postsToShow,
       showNext
     },
-    revalidate: 60 // 60 saniyede bir Notion'dan kontrol et
+    revalidate: false
   }
 }
 

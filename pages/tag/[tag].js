@@ -18,7 +18,7 @@ export async function getStaticProps ({ params }) {
       posts: filteredPosts,
       currentTag
     },
-    revalidate: 60 // 60 saniyede bir Notion'dan kontrol et
+    revalidate: false
   }
 }
 
