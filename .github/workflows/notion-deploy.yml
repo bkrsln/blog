@@ -37,9 +37,15 @@ jobs:
       - name: Generate sitemap
         run: npm run postbuild
         
-      - name: Trigger Cloudflare Pages Deploy
+      - name: List Cloudflare Pages Projects (to find Project ID)
         run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
+          curl -X GET "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            --data '{"compatibility_date":"2023-10-01"}'
+            -H "Content-Type: application/json" || echo "Need Account ID first"
+            
+      - name: Try Cloudflare Pages Deploy (will show available projects if fails)
+        run: |
+          echo "If Project ID not found, we'll get list of available projects from error"
+          curl -X GET "https://api.cloudflare.com/client/v4/pages/projects" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json"
