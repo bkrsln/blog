@@ -1,5 +1,5 @@
 module.exports = {
-  output: 'export',
+  // Removed 'output: export' to enable ISR (Incremental Static Regeneration)
   trailingSlash: true,
   images: {
     unoptimized: true

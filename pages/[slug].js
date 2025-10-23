@@ -102,6 +102,6 @@ export async function getStaticProps ({ params: { slug } }) {
 
   return {
     props: { post, blockMap, emailHash },
-    revalidate: false
+    revalidate: 60 // 60 saniyede bir Notion'dan kontrol et
   }
 }
