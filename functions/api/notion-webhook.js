@@ -1,8 +1,52 @@
+// Utility function to generate webhook signature
+async function generateSignature(body, secret) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(body);
+  const key = encoder.encode(secret);
+  
+  const cryptoKey = await crypto.subtle.importKey(
+    'raw',
+    key,
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  
+  const signature = await crypto.subtle.sign('HMAC', cryptoKey, data);
+  const hashArray = Array.from(new Uint8Array(signature));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  return `sha256=${hashHex}`;
+}
+
 export async function onRequestPost(context) {
   const { request } = context;
   
   try {
-    const body = await request.json();
+    // Read body as text first for signature verification
+    const bodyText = await request.text();
+    
+    // Verify webhook signature if secret is provided
+    if (context.env.NOTION_WEBHOOK_SECRET) {
+      const signature = request.headers.get('notion-webhook-signature') || 
+                       request.headers.get('x-notion-signature');
+      
+      if (signature) {
+        const expectedSignature = await generateSignature(bodyText, context.env.NOTION_WEBHOOK_SECRET);
+        if (signature !== expectedSignature) {
+          console.error('Invalid webhook signature');
+          return new Response(JSON.stringify({ 
+            message: 'Invalid signature' 
+          }), {
+            headers: { 'Content-Type': 'application/json' },
+            status: 401
+          });
+        }
+        console.log('Webhook signature verified successfully');
+      }
+    }
+    
+    const body = JSON.parse(bodyText);
     
     // Handle Notion webhook verification challenge
     if (body?.challenge) {
