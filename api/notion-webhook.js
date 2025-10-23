@@ -1,6 +1,11 @@
 // Notion webhook handler
 export default async function handler(req, res) {
-  // Only accept POST requests
+  // Handle Notion webhook verification challenge
+  if (req.method === 'POST' && req.body?.challenge) {
+    return res.status(200).json({ challenge: req.body.challenge });
+  }
+  
+  // Only accept POST requests for actual webhooks
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
