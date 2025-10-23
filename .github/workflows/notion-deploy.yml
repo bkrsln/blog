@@ -37,19 +37,65 @@ jobs:
       - name: Generate sitemap
         run: npm run postbuild
         
+      - name: Debug Cloudflare API
+        run: |
+          echo "🔍 Testing Cloudflare API connection..."
+          
+          # Test API token validity
+          echo "Testing API token..."
+          curl -s -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" | jq '.'
+          
+          # Get account info
+          echo "Getting account info..."
+          ACCOUNT_RESPONSE=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json")
+          
+          echo "Account response:"
+          echo "$ACCOUNT_RESPONSE" | jq '.'
+          
+          ACCOUNT_ID=$(echo "$ACCOUNT_RESPONSE" | jq -r '.result[0].id // "null"')
+          echo "Extracted Account ID: $ACCOUNT_ID"
+          
+          if [ "$ACCOUNT_ID" = "null" ] || [ -z "$ACCOUNT_ID" ]; then
+            echo "❌ Failed to get Account ID"
+            exit 1
+          fi
+          
+          # List projects to verify access
+          echo "Listing Pages projects..."
+          curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" | jq '.'
+          
       - name: Trigger Cloudflare Pages Deploy
         run: |
-          # Get account ID first
+          # Get account ID
           ACCOUNT_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" | \
             jq -r '.result[0].id')
           
+          echo "🚀 Triggering deployment..."
           echo "Account ID: $ACCOUNT_ID"
+          echo "Project ID: ${{ secrets.CLOUDFLARE_PROJECT_ID }}"
           
-          # Trigger deployment with correct API endpoint
-          curl -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
+          # Trigger deployment
+          DEPLOY_RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/${{ secrets.CLOUDFLARE_PROJECT_ID }}/deployments" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
-            --data '{"compatibility_date":"2023-10-01"}' \
-            || echo "Cloudflare deploy failed, but build was successful"
+            --data '{"compatibility_date":"2023-10-01"}')
+          
+          echo "Deploy response:"
+          echo "$DEPLOY_RESPONSE" | jq '.'
+          
+          # Check if successful
+          SUCCESS=$(echo "$DEPLOY_RESPONSE" | jq -r '.success // false')
+          if [ "$SUCCESS" = "true" ]; then
+            echo "✅ Deployment triggered successfully!"
+          else
+            echo "❌ Deployment failed"
+            echo "$DEPLOY_RESPONSE" | jq -r '.errors[]?.message // "Unknown error"'
+          fi
